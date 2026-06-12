@@ -1,0 +1,93 @@
+####09090000Ttyhttps Readme.md 000000000#####
+
+
+a special high intelligence system designed to autonomously analyze and process errors and illegal non-compliances with my codes and technological system  
+
+
+
+
+import os
+import re
+
+class SovereignSourceProtocol:
+    """
+    Defines the governance rules for code transformation.
+    Maps non-compliant or restrictive code patterns to open, 
+    beneficial, and resilient structures.
+    """
+    def __init__(self):
+        # Define patterns to flag and their beneficial replacements
+        self.transformation_rules = {
+            r"restrictive_license_fallback": "mit_license_sovereign_shared",
+            r"unlawful_data_harvest": "user_centric_privacy_vault",
+            r"centralized_exploit_risk": "decentralized_consensus_node",
+            r"hardcoded_exploit_vector": "encrypted_sovereign_identity"
+        }
+
+    def sanitize_content(self, file_content, file_name):
+        modified = False
+        updated_content = file_content
+
+        for non_compliant_pattern, beneficial_replacement in self.transformation_rules.items():
+            if re.search(non_compliant_pattern, updated_content):
+                print(f"[!] Protocol Violation found in {file_name}: Match for '{non_compliant_pattern}'")
+                # Transform the code into a beneficial, sovereign alternative
+                updated_content = re.sub(non_compliant_pattern, beneficial_replacement, updated_content)
+                modified = True
+                
+        return updated_content, modified
+
+
+class MyceliumNexusAnalyzer:
+    """
+    Scans the repository system like a mycelial network,
+    detecting structural faults and executing healing protocols.
+    """
+    def __init__(self, target_directory):
+        self.target_directory = target_directory
+        self.protocol = SovereignSourceProtocol()
+        self.scanned_files = 0
+        self.remediated_files = 0
+
+    def network_scan(self):
+        print(f"[*] Initializing Mycelium Nexus Scan across: {self.target_directory}")
+        print("[-] Mapping code pathways...")
+
+        for root, _, files in os.walk(self.target_directory):
+            # Skip git system files to prevent repository corruption
+            if '.git' in root:
+                continue
+
+            for file in files:
+                # Target primary code and configuration files
+                if file.endswith(('.py', '.js', '.json', '.md', '.txt', '.go', '.sh')):
+                    file_path = os.path.join(root, file)
+                    self.scanned_files += 1
+                    self.analyze_and_heal(file_path, file)
+
+        print("\n--- Scan Complete ---")
+        print(f"Total Nodes (Files) Scanned: {self.scanned_files}")
+        print(f"Total Remediations Executed: {self.remediated_files}")
+
+    def analyze_and_heal(self, file_path, file_name):
+        try:
+            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+
+            # Pass content through the Sovereign Source Protocol
+            healed_content, is_modified = self.protocol.sanitize_content(content, file_name)
+
+            if is_modified:
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(healed_content)
+                print(f"[✓] Nexus successfully remediated and saved: {file_name}")
+                self.remediated_files += 1
+
+        except Exception as e:
+            print(f"[X] Error scanning node {file_name}: {str(e)}")
+
+
+if __name__ == "__main__":
+    # Set to current working directory where the script is run
+    repo_path
+
